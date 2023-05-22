@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gussi Party - 파티용품 쇼핑몰</title>
+</head>
+<style>
+
+    *{
+        box-sizing:border-box;
+    }
+   
+html, body {margin: 0; padding:0}
+.container {
+    /* background-color: purple; */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    
+}
+.header {
+    /* background-color: blue; */
+    flex: 0 200px;
+    display: flex;
+    flex-direction: column;
+
+    /* position: fixed; 메뉴 상단바 스크롤 내려도 상단에 고정! */
+    /* top: 0; */
+    /* width: 100% */
+    /* left: 0;
+    right: 0; */
+    
+}
+
+.header > .logo-section {
+    /* background-color: red; */
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    font-size: 80px;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Nanum Gothic';
+    font-style: italic;
+     font-style: italic;
+     font-weight: 400;
+    src: url(폰트경로/NanumGothic-Regular-italic.woff2) format("woff2"), 
+        url(폰트경로/NanumGothic-Regular-italic.woff) format("woff"), 
+}
+.header > .logo-section > img {
+    /*width: 250px;*/
+}
+
+.header > .gnb {
+    /* background-color: orange; */
+    flex: 0 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 22px;
+}
+.header > .gnb > .menu-btn {
+    /* background-color: brown; */
+    flex: 0 120px;
+    text-align: center;
+}
+
+
+.content {
+    /* background-color: skyblue; */
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    /* align-items: center;
+    justify-content: center; */
+}
+.footer {
+    flex: 1;
+    /* background-color: pink; */
+}
+
+.content > .first{
+    flex:1;
+    /* background-color: lawngreen; */
+} 
+.content > .second{
+    flex:3;
+    /* background-color: blueviolet; */
+    margin:10px;
+    
+}
+.content > .third{
+    flex:1;
+    /* background-color: olive; */
+}
+.join{
+    border-radius: 50px;
+}
+
+
+.second {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f2f2f2;
+  border-radius: 5px;
+  font-family: Arial, sans-serif;
+}
+
+.second h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.second div {
+  margin-bottom: 10px;
+}
+
+.second input[type="text"] {
+  width: 100%;
+  padding: 5px 10px;
+  margin: 5px 0;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+.second select {
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  background-color: #fff;
+}
+
+.second select#phone {
+  width: 80px;
+}
+
+/* .second button {
+  background-color: black;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 10px 0;
+  cursor: pointer;
+  border-radius: 3px;
+  width: 50%;
+} */
+
+.second button:hover {
+  background-color: black;
+  border: 1px;
+  border-radius: 50px;
+}
+
+
+.general-number {
+    width: 100px; /* Adjust the width as needed */
+}
+
+.button-wrapper {
+    
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    padding: 20px 20px;
+    text-align: center;
+    font-size: 16px;
+    border-radius: 30%;
+    
+    
+}
+
+.button-wrapper button {
+    background-color: lightblue;
+    width: 43%;
+   
+}
+
+button {
+    border-radius: 1ch;
+}
+
+
+.second button:hover {
+        background-color: pink;
+        border: 1px;
+        border-radius: 50px;
+    }
+
+.address-input {
+    width: 100px; /* Adjust the width as needed */
+}
+.address2-input{
+    width: 80%;
+}
+.address-button{
+    color:aqua
+}
+
+
+a {
+  text-decoration-line: none;
+/*   text-decoration-line: underline; */
+/*   text-decoration-line: overline; */
+/*   text-decoration-line: line-through; */
+/*   text-decoration-line: underline line-through overline; */
+}
+
+a { text-decoration: none; color: black; }
+    a:visited { text-decoration: none; }
+    a:hover { text-decoration: none; }
+    a:focus { text-decoration: none; }
+    a:hover, a:active { text-decoration: none; }
+
+    
+/* Dropdown menu styles */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-toggle {
+    cursor: pointer;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    background-color: white;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    min-width: 160px;
+    padding: 12px 16px;
+    font-size: 16px;
+}
+
+.dropdown-menu a {
+    /* color: black; */
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-menu a:hover {
+    background-color: #f1f1f1;
+}
+
+
+</style>
+
+
+<body>
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+        <link rel="stylesheet" href="./style.css"/>
+        <title>PRoom</title>
+    </head>
+    <body>
+        <div class="container">
+            <!-- Header -->
+            <div class="header">
+                <!-- Logo -->
+                <div class="logo-section">
+                    <a href = mainmall.html><img src="Gussi Party Logo.jpg"></a>
+                </div>
+                <!-- GNB -->
+                <div class="gnb">
+                    <!-- <div class="menu-btn"><a href =>home</a></div> -->
+                    <div class="menu-btn"><a href =>Party Room</a></div>
+                    <div class="menu-btn"><a href =>Party Items</a></div>
+                    <div class="menu-btn"><a href =Q&Amall.html>Board</a></div>
+                    <div class="menu-btn dropdown">
+                        <img src="mypageicon.png" width="30px" class="menu-icon dropdown-toggle" alt="마이페이지">
+                        <div class="dropdown-menu">
+                            <a href="loginmall.html">로그인</a>
+                            <a href="joinmall.html">회원가입</a>
+                            <a href="#">마이페이지</a>
+                        </div>&nbsp;
+                        <img src="shoppingcart.ico" width="30px" class="menu-icon dropdown-toggle" alt="장바구니">
+                        <div class="dropdown-menu">
+                            <a href="#">찜한목록</a>
+                            <a href="shoppingCartmall.html">장바구니 전체목록</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Content -->
+            <div class="content">
+               
+
+
+                <div class="first"></div>
+                <div class="second">
+                    기본정보
+                    <div style="display: flex; align-items: center;">아이디 &nbsp <input type="text" style="width: 200px;">(영문소문자/숫자,4~16자)</div>
+
+                    <div> 비밀번호 <input type =password>(영문 대소문자/숫자/특수문자 중 2가지 이상 조합,10~16자)</div>
+                    <div> 비밀번호 확인 <input type =password></div>
+                    <div> 이름 <input type =name ></div>
+                    <div> 주소 <input type="address" class="address-input"> <button class="address-search">우편번호</button><br>
+                        <div> <input type="address" class="address2-input"><br></div>
+                        <div><input type="address" class="address2-input"></div>
+                  </div>
+                  
+                    <div class="input-wrapper"> 일반전화  <select id="fruit-select">
+                        <option value="">02</option>
+                        <option value="apple">031</option>
+                        <option value="banana">032</option>
+                        <option value="grape">033</option>
+                        <option value="orange">041</option>
+                        <option value="">042</option>
+                        <option value="apple">043</option>
+                        <option value="banana">044</option>
+                        <option value="grape">051</option>
+                        <option value="orange">052</option>
+                        <option value="">053</option>
+                        <option value="apple">054</option>
+                        <option value="banana">061</option>
+                        <option value="grape">062</option>
+                        <option value="orange">063</option>
+                        <option value="orange">064</option>
+                    </select> - <input type="tel" class="general-number"> - <input type="tel" class="general-number"> </div>
+                    <div>휴대전화 <select id="phone">
+                        <option value="">010</option>
+                        <option value="">011</option>
+                        <option value="">016</option>
+                        <option value="">017</option>
+                        <option value="">018</option>
+                        <option value="">019</option>
+                    </select>  - <input type="tel" class="general-number"> - <input type="tel" class="general-number"></div>
+                    <div>이메일: <input type =email>  @  <input type=email></div><br><br>
+                    <div>추가정보</div><br><br>
+
+                    생년월일  <form>
+                        <label for="year">년:</label>
+                        <select id="year" name="year">
+                            <!-- 연도 옵션을 추가하세요. 예를 들어, 1900년부터 2023년까지 -->
+                        </select>
+                        
+                        <label for="month">월:</label>
+                        <select id="month" name="month">
+                            <!-- 월 옵션을 추가하세요. 1월부터 12월까지 -->
+                        </select>
+                
+                        <label for="day">일:</label>
+                        <select id="day" name="day">
+                            <!-- 일 옵션을 추가하세요. 1일부터 31일까지 -->
+                        </select>
+                    </form>
+
+                    <br>
+                    <div class="button-wrapper">
+                        <button id="join">회원가입</button>
+                        <button>수정</button>
+                    </div>
+                </div>
+                
+                <div class="third"></div>
+
+
+            </div>
+            <!-- Footer -->
+            <div class="footer">
+                Copyright by GucciRoom
+            </div>
+        </div>
+    
+</body>
+<script src="https://code.jquery.com/jquery-latest.js"></script>
+<script>
+    $(document).ready(function() {
+    $(".dropdown-toggle").hover(
+        function() {
+            $(this).next(".dropdown-menu").stop(true, true).slideDown("fast");
+        },
+        function() {
+            $(this).next(".dropdown-menu").stop(true, true).slideUp("slow");
+        }
+
+
+        
+    );
+});
+    const yearSelect = document.getElementById("year");
+    const monthSelect = document.getElementById("month");
+    const daySelect = document.getElementById("day");
+
+    // 연도 옵션 추가
+    for (let i = 1900; i <= 2023; i++) {
+        const option = document.createElement("option");
+        option.value = i;
+        option.text = i;
+        yearSelect.add(option);
+    }
+
+    // 월 옵션 추가
+    for (let i = 1; i <= 12; i++) {
+        const option = document.createElement("option");
+        option.value = i;
+        option.text = i;
+        monthSelect.add(option);
+    }
+
+    // 일 옵션 추가
+    for (let i = 1; i <= 31; i++) {
+        const option = document.createElement("option");
+        option.value = i;
+        option.text = i;
+        daySelect.add(option);
+    }
+
+
+    
+
+
+
+</script>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="name"><br><br>
+    <button id="btnSet">Set name</button><br>
+    <button id="btnShow">Show</button>
+</body>
+<script src="https://code.jquery.com/jquery-latest.js"></script>
+<script>
+$(document)
+.on('click','#btnSet',function(){
+    $('#name').val('Good Morning Vietnam');
+    setTimeout(function(){
+        $('#btnShow').trigger('click');
+    },1000);
+})
+.on('click','#btnShow',function(){
+    alert($('#name').val());
+})
+</script>
+</html>

@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <title>호텔객실예약관리 - 객실관리</title>
+</head>
+
+<style>
+body {
+    background-image: url('hotel1.jpg');
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+button {
+    border-radius: 1ch;
+    border-color: azure;
+}
+input {
+    border-radius: 1ch;
+    border-color: azure;
+}
+select {
+    border-radius: 1ch;
+    border-color: azure;
+}
+
+#program{
+    width: 800px;
+    height:600px;
+    text-align: center;
+    border:1px solid rgb(197, 193, 193);
+    border-collapse: collapse;
+}
+#sign{
+    font-weight: bold;
+}
+#r_list{
+    width: 400px;
+    height: 400px;
+    border-radius: 10% 10% 10% 10%;
+    border:10px solid black;
+    -ms-overflow-style: none;
+    text-align: center;
+
+    font-size:17px;
+    background-color:white
+}
+#r_list::-webkit-scrollbar {
+  display:none;
+}
+#r_list option{
+    font-weight: bold;
+    background-color:rgb(210, 224, 224);
+}
+#r_inputs{
+    font-weight: bold;
+}
+
+input{
+    width:100px;
+}
+select{
+    width:110px;
+}
+#r_inputs td{
+    width: 160px;
+    height: 40px;
+    text-align: center;
+    font-weight: bold;
+    border:1px solid rgb(211, 203, 203);
+    border-collapse: collapse;
+}
+#sign td{
+    border-bottom: 1px solid;
+    border-left: 1px solid rgb(226, 221, 221);
+    border-top: 1px solid rgb(161, 152, 152);;
+    background-color: rgb(243, 237, 233);
+}
+
+
+
+
+#t_list{
+    width: 400px;
+    height: 400px;
+    border-radius: 10% 10% 10% 10%;
+    border:3px solid black;
+    -ms-overflow-style: none;
+    text-align: center;
+
+    font-size:17px;
+    background-color:white
+}
+#t_list::-webkit-scrollbar {
+    display:none; 
+}
+#t_list option{
+    font-weight: bold;
+    background-color:rgb(210, 224, 224);
+}
+#t_inputs{
+    font-weight: bold;
+    border:1px solid green;
+}
+#t_inputs input{
+    width:120px;
+}
+#t_inputs td{
+    height:40px;
+    width:90px;
+    font-size: 15px;
+}
+</style>
+
+
+<body>
+
+
+<!------------------------------------------------객실관리---------------------------------------------------->
+<table id="program" style="background-color: rgb(243, 237, 233);" align="center">
+    <tr id="sign" style="height:80px;">
+        <td style="width:15%">
+            객실관리<br>
+            <a href=book.html>예약관리</a>
+        </td>   
+        <td>
+            <h1>호텔 객실 예약관리</h1>
+        </td>   
+        <td style="width:30%">
+            designed <br> by MINSUK KIM
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2">
+            <select id="r_list" class="r_list" size="10">
+
+            </select>
+        </td>   
+      
+        <td align="center">
+            <table style="text-align:center" id="r_inputs">
+                <tr>
+                    <td style="width:50%">객실번호</td> <td><input id="r_number"></td> 
+                </tr>
+                <tr>
+                    <td>객실명</td> <td><input id="r_name"></td> 
+                </tr>
+                <tr>
+                    <td>객실타입</td> <td><select id="r_type"></select></td> 
+                </tr>
+                <tr>
+                    <td>숙박가능인원</td> <td><input id="r_people"></td> 
+                </tr>
+                <tr>
+                    <td>1인 요금</td> <td><input id="r_price"></td> 
+                </tr>
+                <tr><td colspan="2">&nbsp;</td></tr>
+                <tr>
+                    <td><button id="r_add">추가</button> <button id="r_cancel">삭제</button></td> 
+                    <td><button id="r_reset">비우기</button></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><button id="read_type">객실타입관리</button></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>  
+
+
+<div id="r_alert" title="안내문" style="display:none">
+    필요한 정보를 모두 입력해주세요.
+</div>
+<!------------------------------------------------객실관리---------------------------------------------------->
+
+<!----------------------------------------------타입관리---------------------------------------------------->
+<div id="type" title="객실type관리" style="display:none">
+    <table>
+        <tr>
+            <td>
+                <select id="t_list" style="width:200px;height:400px;" size="10"> 
+
+                </select>
+            </td>
+
+            <td>
+                <table id="t_inputs">
+                    <tr>
+                        <td>객실타입번호</td> <td colspan="2"><input id="t_number" type="number"></td> 
+                    </tr>
+                    <tr>
+                        <td>객실타입명</td> <td colspan="2"><input id="t_name" type="text"></td> 
+                    </tr>
+                    <tr>
+                        <td><button id="t_add">추가</button></td> 
+                        <td><button id="t_delete">삭제</button></td> 
+                        <td><button id="t_reset">비우기</button></td>
+                    </tr>
+                    <tr>
+                        <td></td> <td><button id="t_save">저장하기</button></td> <td></td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</div>
+<!----------------------------------------------타입관리---------------------------------------------------->
+</body>
+<script src="https://code.jquery.com/jquery-latest.js"></script>
+<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+<script>
+
+
+//---------------------------------------------- 객실관리 ------------------------------------------------------
+$(document)
+.on('click','#r_add',function(){
+    rNumber = $('#r_number').val();             if(rNumber==""){r_alert();return};
+    rName = $('#r_name').val();       
+    rType = $('#r_type option:selected').text();       
+    rPeople = $('#r_people').val();             if(rPeople==""){r_alert();return};
+    rPrice = $('#r_price').val();               if(rPrice==""){r_alert();return};
+
+    str = rNumber + "호, " + rName + ", "+ rType +", " + rPeople + "명, " + rPrice + "원"  
+    $('#r_list').append('<option>' + str + '</option>')
+    
+    $('#r_reset').trigger('click');
+})
+
+.on('click','#r_reset',function(){
+    $('#r_number').val("");
+    $('#r_name').val("");
+    $('#r_type option:eq(0)').prop('selected',true)
+    $('#r_people').val("");
+    $('#r_price').val("");
+})
+
+.on('click','#r_cancel',function(){
+    $('#r_list option:selected').remove();
+    $('#r_reset').trigger('click');
+})
+
+
+.on('click','#r_list option',function(){
+    str = $('#r_list option:selected').text().split(', ')   
+    number = str[0].split('호')[0];
+    name = str[1];
+    type = str[2];
+    people = str[3].split('명')[0];
+    price = str[4].split('원')[0];
+
+    $('#r_number').val(number);
+    $('#r_name').val(name);
+    $('#r_type option:contains('+ type +')').prop('selected',true)
+    $('#r_people').val(people);
+    $('#r_price').val(price);
+})
+
+
+
+
+.on('click','#read_type',function(){
+
+    $('#t_list').empty();
+
+    for(i=0;i< $('#r_type option').length; i++){
+
+        r_value = $('#r_type option').eq(i).val()
+        r_name = $('#r_type option').eq(i).text()
+        str = '<option value=' + r_value + '>' + r_value +", "+r_name + "</option>"
+        $('#t_list').append(str);
+    }        
+
+    $('#type').dialog({
+        title:'객실 타입 관리',
+        minWidth:570, maxWidth:571, minHeight:550, maxHeight:551,
+        modal:true,
+        beforeClose:function(){
+ 
+            if($('#t_list option').length<1){
+                $('#r_type').empty();
+            
+
+            } else{
+
+                $('#r_type').empty();
+                for(i=0;i<$('#t_list option').length;i++){
+
+                    value = $('#t_list option').eq(i).val()
+                    name = $('#t_list option').eq(i).text().split(", ")[1]; 
+                        
+                    str = '<option value='+ value +'>' + name + '</option>';
+                    $('#r_type').append(str);
+            
+                }
+            }
+            $('#t_reset').trigger('click')
+
+        }
+    })
+})
+
+function r_alert(){
+    $('#r_alert').dialog({
+        title:'안내문',
+        'position':{my:"right bottom",at:"right top",of:$('#r_cancel')},
+        modal:true
+    })
+}
+//---------------------------------------------- 객실관리 ------------------------------------------------------
+
+
+// --------------------------------------------- 타입관리 ------------------------------------------------------
+$(document)
+
+.on('click','#t_add',function(){
+    
+    value = $('#t_number').val();   if(value==""){return;}
+    name = $('#t_name').val();      if(name==""){return;}
+
+    str = '<option value='+ value +'>'+ value +", "+name + '</option>'
+    $('#t_list').append(str);
+    $('#t_reset').trigger('click')
+})
+
+.on('click','#t_delete',function(){
+    $('#t_list option:selected').remove();
+    $('#t_reset').trigger('click')
+})
+
+.on('click','#t_reset',function(){
+    $('#t_number').val('');
+    $('#t_name').val('');
+})
+
+.on('click','#t_list option:selected',function(){
+    str = $(this).text().split(', ');
+    $('#t_number').val(str[0]);
+    $('#t_name').val(str[1]);
+})
+
+.on('click','#t_save',function(){
+
+    if($('#t_list option').length<1){
+        $('#r_type').empty();
+        $('#type').dialog('close')
+
+    } else{
+
+        $('#r_type').empty();
+        for(i=0;i<$('#t_list option').length;i++){
+        
+        value = $('#t_list option').eq(i).val()
+        name = $('#t_list option').eq(i).text().split(", ")[1]; 
+            
+        str = '<option value='+ value +'>' + name + '</option>';
+        $('#r_type').append(str);
+        $('#type').dialog('close')
+        }
+    }
+
+    $('#t_reset').trigger('click')
+})
+// <!-- <style>
+// #tbl1 { width:860px;border-collapse:collapse; }
+// #tbl2 { border: 3px solid rgb(219, 118, 59); }
+
+// body {
+//     background-image: url('hotel1.jpg');
+//     background-repeat: no-repeat;
+//     background-size: 100%;
+// }
+// .import {
+//     font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+//     font-size: 16px;
+//     font-style:oblique;
+//     font-weight:bolder;
+// }
+// button {
+//     border-radius: 1ch;
+//     border-color: azure;
+// }
+// input {
+//     border-radius: 1ch;
+//     border-color: azure;
+// }
+// select {
+//     border-radius: 1ch;
+//     border-color: azure;
+// }
+// </style>
+
+// <body>
+// <table id="tbl1" align="center" class="import" style="width: 900px;height: 300px;background-color: rgb(243, 237, 233);">
+//     <tr>
+//         <td>
+
+//             <table id="tbl2" style="width: 900px;" border="3">
+//                 <tr>
+//                     <td style="width: 33%;text-align: center;" >객실관리&nbsp;&nbsp;&nbsp;<a href="book.html">예약관리</a></td>
+                        
+//                     <td style="width: 34%;text-align: center;"><h1>호텔 객실 예약관리</h1></td>
+
+//                     <td style="width: 33%;" align="center">Designed by Min Suk</td>
+//                 </tr>
+//             </table>  
+                
+//             <table id="tbl2" style="width: 900px;" border="1">
+//                 <tr>
+
+//                     <td align="center" style="width: 50%;">
+
+//                         <select id="sel" size="14" style="width: 250px;"> -->
+//                             <!-- <option value="1.백두산 Suite Room 120k">1.백두산 Suite Room 120k</option>
+//                             <option value="2.한라산 Family Room 100k">2.한라산 Family Room 100k</option>
+//                             <option value="3.광덕산 Deluxe Room 100k">3.광덕산 Deluxe Room 100k</option>
+//                             <option value="4.설악산 Double Room 90k">4.설악산 Double Room 90k</option>
+//                             <option value="5.태조산 Single Room 80k">5.태조산 Single Room 80k</option> -->
+//                         <!-- </select><br>
+//                         <button id="btnType" class="import">객실타입관리</button>
+
+//                     </td>
+
+//                     <td>
+
+//                         <table align="center">
+//                             <tr>
+//                                 <td>객실번호&nbsp;</td><td><input id="num" type="number" value="1" min="1" max="5" style="width: 100px;"></td>
+//                             </tr>
+
+//                             <tr>
+//                                 <td>객실명&nbsp;</td>
+                                
+//                                 <td>
+//                                     <select id="sel1" style="width: 110px;">        
+//                                         <option value="백두산">백두산</option>
+//                                         <option value="한라산">한라산</option>
+//                                         <option value="광덕산">광덕산</option>
+//                                         <option value="설악산">설악산</option>
+//                                         <option value="태조산">태조산</option>
+//                                     </select>
+//                                 </td>
+//                             </tr>
+
+//                             <tr>
+//                                 <td>객실타입&nbsp;</td>
+
+//                                 <td>
+//                                     <select id="sel2" style="width: 110px;">         -->
+//                                         <!-- <option value="Suite Room">Suite Room</option>
+//                                         <option value="Family Room">Family Room</option>
+//                                         <option value="Deluxe Room">Deluxe Room</option>
+//                                         <option value="Double Room">Double Room</option>
+//                                         <option value="Single Room">Single Room</option> -->
+//                                     <!-- </select>
+//                                 </td>
+//                             </tr>
+
+//                             <tr>
+//                                 <td>숙박가능인원&nbsp;</td><td><input id="peo" type="number" value="1" min="1" style="width: 100px;">&nbsp;명</td>
+//                             </tr>
+                        
+//                             <tr>
+//                                 <td>1박요금&nbsp;</td><td><input id="price" type="text" style="width: 100px;">&nbsp;원</td>
+//                             </tr>
+
+//                             <tr><td colspan="2">&nbsp;</td></tr>
+
+//                             <tr>
+//                                 <td align="center" colspan="2">&nbsp;&nbsp;&nbsp;<button id="add">추가</button>&nbsp;&nbsp;&nbsp;<button id="del">삭제</button>&nbsp;&nbsp;&nbsp;<button id="emp">비우기</button></td>
+//                             </tr>
+//                         </table>
+
+//                     </td>
+
+//                 </tr>
+//             </table>
+
+//         </td>    
+//     </tr>  
+// </table><br>
+
+// <div id="typeDlg" style="display: none;">
+//     <table id="tbl1" align="center" class="import" style="background-color: rgb(243, 237, 233);">
+//         <tr>
+//             <td> -->
+    
+//                 <!-- <table id="tbl2" style="width: 900px;" border="3">
+//                     <tr>
+//                         <td style="width: 33%;">객실타입관리&nbsp;&nbsp;&nbsp;<a href="room.html">객실관리</a>&nbsp;&nbsp;&nbsp;<a href="book.html">예약관리</a></td>
+                            
+//                         <td style="width: 34%;text-align: center;"><h1>호텔 객실 예약관리</h1></td>
+    
+//                         <td style="width: 33%;" align="center">Designed by Min Suk</td>
+//                     </tr>
+//                 </table> -->
+    
+//                 <!-- <table id="tbl2" style="width: 900px;" border="1"> 
+//                     <tr>
+//                         <td align="center" style="width: 50%;">
+//                             <select id="sele" size="10" style="width: 250px;"></select>
+//                         </td>
+    
+//                         <td>
+    
+//                             <table align="center">
+//                                  <tr>
+//                                     <td>타입번호&nbsp;</td><td><input id="numb" type="number" value="1" min="1" max="5" style="width: 100px;"></td>
+//                                 </tr>
+    
+//                                 <tr>
+//                                     <td>타입명&nbsp;</td><td><input id="tyname" type="text" style="width: 100px;"></td>
+//                                 </tr>
+    
+//                                 <tr><td colspan="2">&nbsp;</td></tr>
+    
+//                                 <tr>
+//                                     <td align="center" colspan="2"><button id="addd">추가</button>&nbsp;&nbsp;&nbsp;<button id="dell">삭제</button>&nbsp;&nbsp;&nbsp;<button id="empp">비우기</button></td>
+//                                 </tr>
+//                             </table>
+    
+//                         </td>
+//                     </tr>
+//                 </table>
+    
+//             </td>     
+//         </tr>    
+//     </table>
+// </div>
+// <div id="alertDlg" style="display: none;">
+//     <label id="lblMessage"></label><br> -->
+//     <!-- <button id="btnClose">닫기</button> -->
+// <!-- </div>
+// </body>
+
+// <script src="https://code.jquery.com/jquery-latest.js"></script>
+// <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+// <script> -->
+// // alert(document.cookie);
+// // $(document)
+
+// // .on('click','#btnType',function(){
+//     $('#typeDlg').dialog({
+//     minWidth:570, maxWidth:571, minHeight:550, maxHeight:551,
+//     beforeClose:function(){
+//         $('#sel2').empty();
+//         for(i=0;i<$('#sele option').length;i++){      
+//             str = $('#sele option').eq(i).text().split('. ');
+//             number = str[0]; name = str[1];
+//             str1 = '<option value='+number+'>' + name + '</option>';
+//             $('#sel2').append(str1);
+//         }
+//     }
+//     });
+// })
+
+
+// .on('click','#btnType',function(){
+//     $('#typeDlg').dialog({
+//         title:'객실타입관리',
+//         modal:true,
+//         width:540,
+//         'position':{'my':"center top",at:"center bottom",of:$('#tbl')},
+//     });
+// })
+
+
+// .on('click','#add',function(){
+//     str='<option>'+$('#num').val()+','+$('#sel1 option:selected').val()+
+//         ','+$('#sel2 option:selected').val()+
+//         ','+$('#peo').val()+','+$('#price').val()+'</option>';
+
+//     if($('#price').val()=='') {
+//         alert('1박요금을 입력하십시오!');
+//         $('#sel').val('');
+//     } else {
+//         $('#sel').append(str);
+//     }
+    
+//     $('#num').val(1);
+//     $('#sel1').val('백두산');
+//     $('#sel2').val('Suite Room');
+//     $('#peo').val(1);
+//     $('#price').val('');
+// })
+
+
+// .on('click','#del',function(){
+//     $('#sel option:selected').remove();
+// })
+
+
+// .on('click','#emp',function(){
+//     $('#num').val(1);
+//     $('#sel1').val('백두산');
+//     $('#sel2').val('Suite Room');
+//     $('#peo').val(1);
+//     $('#price').val('');
+// })
+
+
+// .on('click','#sel option:selected',function(){
+//     str=$(this).text().split(',');
+    
+//     number = str[0];
+//     name = str[1];
+//     type = str[2];
+//     peo = str[3];
+//     price = str[4];
+    
+//     $('#num').val(number);
+//     $('#sel1 option:contains('+ name +')').prop('selected',true);
+//     $('#sel2 option:contains('+ type +')').prop('selected',true);
+//     $('#peo').val(peo);
+//     $('#price').val(price);
+// })
+
+
+// .on('change','#num',function(){
+//     if($('#num').val()==1) {
+//         $('#sel1').val('백두산');
+//         $('#sel2').val('Suite Room');
+//     }
+//     if($('#num').val()==2) {
+//         $('#sel1').val('한라산');
+//         $('#sel2').val('Family Room');
+//     }
+//     if($('#num').val()==3) {
+//         $('#sel1').val('광덕산');
+//         $('#sel2').val('Deluxe Room');
+//     }
+//     if($('#num').val()==4) {
+//         $('#sel1').val('설악산');
+//         $('#sel2').val('Double Room');
+//     }
+//     if($('#num').val()==5) {
+//         $('#sel1').val('태조산');
+//         $('#sel2').val('Single Room');
+//     }
+// })
+
+
+// .on('click','#addd',function(){
+//     str='<option>'+$('#numb').val()+'. '+$('#tyname').val()+'</option>';
+    
+//     if($('#tyname').val()=='') {
+//         alert('타입명을 입력하십시오!');
+//         $('#sele').val('')
+//     } else {
+//         $('#sele').append(str)
+//     }
+
+//     $('#numb').val(1);
+//     $('#tyname').val('');
+// })
+
+
+// .on('click','#dell',function(){
+//     $('#sele option:selected').remove();
+// })
+
+
+// .on('click','#empp',function(){
+//     $('#numb').val(1);
+//     $('#tyname').val('');
+// })
+
+
+// .on('click','#btnClose',function(){
+//     $('#alertDlg').dialog('close');
+// })
+
+
+// function showDlg(str){ // 함수선언
+//     $('#lblMessage').text(str);
+//     $('#alertDlg').dialog({
+//        'title':'알림창', // 객체
+//        'position':{'my':"left top",at:"left bottom",of:$('#add')},
+//        modal:true,
+//        buttons:[
+//            {
+//                 text:'OK',
+//                 click:function(){
+//                     $(this).dialog('close');
+//                 }
+//            },
+//            {
+//                 text:'Close',
+//                 click:function(){
+//                     alert('안닫힘');
+//                 }
+//            }
+//        ]
+//     });
+// }
+
+</script>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="checkbox" name="interest" value="정치">정치&nbsp;
+    <input type="checkbox" name="interest" value="경제">경제&nbsp;
+    <input type="checkbox" name="interest" value="사회">사회<br>
+    <input type="checkbox" name="interest" value="문화">문화&nbsp;
+    <input type="checkbox" name="interest" value="종교">종교&nbsp;
+    <input type="checkbox" name="interest" value="재테크">재테크<br>
+    <input type="checkbox" name="interest" value="스포츠">스포츠&nbsp;
+    <input type="checkbox" name="interest" value="IT">IT&nbsp;
+    <input type="checkbox" name="interest" value="연예">연예<br><br>
+    <label id="lblInterest"></label><br>
+    <table border="5" id="tblData" style="display:none">
+    <tr>
+        <td>John</td><td>Jane</td><td>James</td>
+    </tr>
+    <tr>
+        <td>Johanson</td><td>Jacob</td><td>Jason</td>
+    </tr>
+    <tr>
+        <td>Steve</td><td>Jobs</td><td>Nerd</td>
+    </tr>
+    <tr>
+        <td>Car</td><td>Flower</td><td>Sunset</td>
+    </tr>
+    <tr>
+        <td>Fog</td><td>Rain</td><td>Snow</td>
+    </tr>
+    <tr>
+        <td>Sea</td><td>River</td><td>Valley</td>
+    </tr>
+    </table><br>
+    <input type="button" value="get" id="btnGet">
+</body>
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script>
+$(document)
+.on('click','#btnGet',function(){
+    // $('#tblData').css('background-color','yellow');
+    $('#tblData tr:odd').css({'background-color':'yellow', 'color':'red'});
+    $('#tblData tr:even').css({'background-color':'aqua', 'color':'blue'});
+    $('#tblData tr:eq(0)').css({'background-color':'black', 'color':'white'});
+    // let str=$('#tblData').find('tr:eq(0) > td:eq(1)').text();
+    // alert(str);
+    $('#tblData').find('tr:eq(0) > td:eq(1)').text('Machine Learning');
+    $('#tblData').fadeToggle(2000);
+})
+.on('click','[name=interest]',function(){
+    let str='';
+    for(i=0; i<$('[name=interest]').length; i++) {
+        let ptr = '[name=interest]:eq('+i+')';
+        if($(ptr).prop('checked')) {
+           str+=','+$(ptr).val();
+        }
+    }
+    $('#lblInterest').text(str);
+})
+</script>
+</html>

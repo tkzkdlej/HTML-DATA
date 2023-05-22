@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gussi Party - 파티용품 쇼핑몰</title>
+</head>
+<style>
+    html, body {margin: 0; padding:0 }
+
+    a {
+  /* text-decoration-line: none; */
+/*   text-decoration-line: underline; */
+/*   text-decoration-line: overline; */
+/*   text-decoration-line: line-through; */
+/*   text-decoration-line: underline line-through overline; */
+}
+
+a { text-decoration: none; color: black; }
+    a:visited { text-decoration: none; }
+    a:hover { text-decoration: none; }
+    a:focus { text-decoration: none; }
+    a:hover, a:active { text-decoration: none; }
+
+.container {
+    /* background-color: blue; */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+.header {
+    /* background-color: purple; */
+    flex: 0 200px;
+    display: flex;
+    flex-direction: column;
+
+    /* position: fixed; 메뉴 상단바 스크롤 내려도 상단에 고정! */
+    /* top: 0; */
+    /* width: 100% */
+    /* left: 0;
+    right: 0; */
+}
+
+.header > .logo-section {
+    /* background-color: red; */
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    font-size: 80px;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Nanum Gothic';
+    font-style: italic;
+     font-style: italic;
+     font-weight: 400;
+    src: url(폰트경로/NanumGothic-Regular-italic.woff2) format("woff2"), 
+        url(폰트경로/NanumGothic-Regular-italic.woff) format("woff"), 
+}
+.Famous{
+    font-size: 20px;
+}
+
+.header > .logo-section > img {
+    /* width: 250px; */
+}
+
+.header > .gnb {
+    /* background-color: orange; */
+    flex: 0 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 22px;
+}
+.header > .gnb > .menu-btn {
+    /* background-color: brown; */
+    flex: 0 120px;
+    text-align: center;
+}
+
+
+.content {
+    /* background-color: aqua; */
+    flex: 1 800px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+   
+}
+
+.footer {
+    /* background-color: chartreuse; */
+    flex: 0 80px;
+    padding:10px;
+    display:flex;
+    flex-direction: row;
+    font-size: 10px;
+    /* display: flex; */
+    /* justify-content: space-between; */
+}
+
+.footer2{
+    flex:1;
+    /* background-color: blue; */
+}
+.footer3{
+    /* background-color:orange ; */
+    flex:1;
+}
+.footer4{
+    /* background-color: chocolate; */
+    flex:1;
+}
+
+.menu-icon:hover {
+  transform: scale(1.2);
+}
+
+
+/* Dropdown menu styles */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-toggle {
+    cursor: pointer;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    background-color: white;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    min-width: 160px;
+    padding: 12px 16px;
+    font-size: 16px;
+}
+
+.dropdown-menu a {
+    /* color: black; */
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-menu a:hover {
+    background-color: #f1f1f1;
+}
+
+.content2 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px 0;
+        /* background-color: purple; */
+    }
+
+    .content2 img {
+        width: 300px;
+        margin: 0 10px;
+
+    }
+
+</style>
+
+<body>
+    
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <!-- Logo -->
+            <div class="logo-section">
+                <a href = mainmall.html><img src="Gussi Party Logo.jpg"></a>
+                <!-- <br class="Famous ">  -->
+            </div>
+            <!-- GNB -->
+            <div class="gnb">
+                <div class="menu-btn"><a href= >Party Room</a></div>
+                <div class="menu-btn"><a href=>Party Items</a></div>
+                <div class="menu-btn"><a href=Q&Amall.html>Board</a></div>
+                <div class="menu-btn dropdown">
+                    <img src="mypageicon.png" width="30px" class="menu-icon dropdown-toggle" alt="마이페이지">
+                    <div class="dropdown-menu">
+                        <a href="loginmall.html">로그인</a>
+                        <a href="joinmall.html">회원가입</a>
+                        <a href="#">마이페이지</a>
+                    </div>&nbsp;
+                    <img src="shoppingcart.ico" width="30px" class="menu-icon dropdown-toggle" alt="장바구니">
+                    <div class="dropdown-menu">
+                        <a href="#">찜한목록</a>
+                        <a href="shoppingCartmall.html">장바구니 전체목록</a>
+                    </div>
+                </div>
+        </div>
+        </div>
+        <!-- Content -->
+        <div class="content">
+            <div class="slideshow-container">
+                <img class="slide" src="mainpic.jpg" alt="Image 1">
+                <img class="slide" src="mainpic2.jpg" alt="Image 2">
+                <img class="slide" src="mainpic3.jpg" alt="Image 3">
+                <!-- <img class="slide" src="mainpic4.jpg" alt="Image 4"> -->
+            </div>
+            </div>
+            <div class="content2">
+                <img src="mainpic4.jpg" alt="마이페이지">
+                <img src="mainpic5.jpg" alt="마이페이지">
+                <img src="mainpic6.jpg" alt="마이페이지">
+            </div>
+        </div>
+        <!-- Footer -->
+        <div class="footer">
+           
+        <div class="footer2"> 
+            COMPANY HUMAN<br>
+            TEL:010-0000-0000<br>
+            OWNER: 김준하<br>
+            BUSINESS LICENSE: 422-4212-421<br>
+            Copyright by GucciROOM<br>
+            ADDRESS: 충청남도 천안시 동남구<br>
+            개인정보취급관리자: 
+        </div>
+        <div class="footer3"> 
+            
+            CS CENTER<br>
+
+            070-4140-0732
+            MON-FRI AM 10 - PM 6<br>
+            LUNCH PM1-PM2
+            SAT.SUN/HOLIDAY OFF<br><br>
+            하나은행 302123131545301
+
+
+        
+        </div>
+        <div class="footer4">
+            교환/반품주소<br>
+            충청남도 서북구<br>
+            CJ대한통운 1588 1255 <br>
+            배송위치 조회하기
+            고객님은 안전거래를 위해 결제시 저희 쇼핑몰에게
+            가입한 KCP 에스그로 구매안전 서비스를 이용할수있습니다.
+            <button id="submit"> 서비스가입사실확인</button> 
+            
+            COPYRIGHT ALL RIGHT RESERVED
+            
+        </div>
+        </div>
+
+
+    </div>
+</body>
+<script src="https://code.jquery.com/jquery-latest.js"></script>
+<script>
+    $(document).ready(function() {
+    $(".dropdown-toggle").hover(
+        function() {
+            $(this).next(".dropdown-menu").stop(true, true).slideDown("fast");
+        },
+        function() {
+            $(this).next(".dropdown-menu").stop(true, true).slideUp("slow");
+        }
+
+
+        
+    );
+});
+
+let slideIndex = 0;
+            const slides = $(".slide");
+            slides.hide();
+
+            function showSlides() {
+                slides.hide();
+                slideIndex++;
+                if (slideIndex > slides.length) {slideIndex = 1}
+                slides.eq(slideIndex - 1).fadeIn(1000);
+                setTimeout(showSlides, 3000); // Change image every 3 seconds
+            }
+
+            showSlides();
+        
+        
+</script>
+</html>

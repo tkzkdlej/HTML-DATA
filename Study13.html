@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트(Jquery)로 HTML 구현</title>
+</head>
+
+
+<body>
+    <table align="center">
+        <tr>
+            <td>
+            <table align="left">
+    
+                <tr>
+                    <td>로긴아이디  </td><br>
+                    <td>: <input type="text" name="userid" id="userid"></td>
+                </tr>
+    
+                <tr>
+                    <td>비밀번호  </td><br>
+                    <td>: <input type="password" name="passcode" id="passcode"></td>
+                </tr>
+    
+                <tr align="center"><td colspan="2"><button id="btnShow">Show</button><br></td></tr>
+                
+                <tr align="center">
+                    <td><input type="radio" name="gender" id="male" value="남자">남자<br></td>
+                    <td><input type="radio" name="gender" id="female" value="여자">여자<br></td>
+                </tr>
+
+                <tr>
+                    <td colspan="2" align="center"><label id="lbl">No content</label><br></td>
+                </tr>
+
+                <tr>
+                <table id="tblData" border="1" align="center">
+
+                    <tr>
+                    <td>John</td><td>Jane</td><td>James</td>
+                    </tr>
+
+                </table>
+                </tr>
+
+                <tr>
+                    <td colspan="2" align="center">
+                        <div id="dvArea" style="width:200px;height:200px;border:1px solid red;"></div><br>
+                        <input type="button" id="btnSet" value="div채우기">
+                        <select id="country" size="5">
+                            <option value="KOREA">대한민국</option>
+                            <option value="USA">미국</option>
+                            <option value="FRA">프랑스</option>
+                            <option value="ITA">이탈리아</option>
+                            <option value="SPA">스페인</option>
+                        </select><br>
+                        <label id="lblCountry"></label>
+                        <input type="checkbox" id="chkMarriage">미혼
+                        <button id="btnCheck">Set Checked</button>
+                    </td>
+                </tr>
+
+            </table>
+    </table>
+
+</body>
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script>
+$(document)
+.ready(function(){
+    alert('웹페이지가 로드됐습니다.초기화');
+})
+.on('click','input[name=gender]',function(){
+    let str = $(this).val();
+    $('#lbl').text(str);
+})
+.on('click','#btnCheck',function(){
+    $('#chkMarriage').prop('checked',false);
+})
+.on('click','#chkMarriage',function(){
+    let str = $(this).prop('checked');
+    $('#lblCountry').text(str);
+})
+.on('click','#country',function(){
+    let str1=$(this).val();
+    let str2=$(this).find('option:selected').text();
+    $('#lblCountry').text(`value [${str1}] text [${str2}]`);
+})
+.on('click','#btnSet',function(){
+    $('#dvArea').html('<input type=button id=btnClear value="지우기">');
+})
+.on('click','#btnClear',function(){
+    $('#dvArea').html('');
+})
+.on('click','#btnShow', function(){   
+        let userid=$('#userid').val();
+        let passcode=$('#passcode').val();
+        alert('로긴아이디 : '+userid+'\n비밀번호 : '+passcode);
+})
+.on('click','#userid',function(){
+    $('#userid').val('xaexal');
+})
+.on('click','#passcode',function(){
+    $('#passcode').val('human123');
+})
+</script>
+</html>

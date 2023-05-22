@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+        <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript</title>
+</head>
+<body>
+    <input type="text" id="name">&nbsp;<label id="lblName"></label><br>
+    <input type="password" id="passcode">&nbsp;<label id="lblPwd"></label><br>
+    <input type="button" id="btnLogin" value="Login"><br><br>
+    <select id="country">
+        <option>대한민국</option>
+        <option>쌀국</option>
+        <option>불란서</option>
+        <option>화란</option>
+        <option>서반아</option>
+        <option>비울빈</option>
+    </select><br><br>
+    <textarea id="txtara" cols="40" rows="40"></textarea>
+</body>
+<script src="https://code.jquery.com/jquery-latest.js"></script>
+<script language="javascript">    
+$(document)
+.on('change','#name',function(){
+    $('#txtara').append('change TEXT\n');
+})
+.on('blur','#name',function(){
+    $('#txtara').append('blur TEXT\n');
+})
+.on('click','#country',function(){
+    $('#txtara').append('click on Country\n');
+})
+.on('change','#country',function(){
+    $('#txtara').append('change on Country\n');
+})
+// let i=10;
+// let j=5;
+// let n=i+j;
+// document.write(i+j+'<br>');
+
+// document.write(++i+'<br>');
+// document.write(i+'x'+j+'='+(i*j)+'<br>');
+// document.write(`${i}x${j}=${i*j}`+'<br>')
+// bow="Hello World";
+// document.write(`${bow} Disney<br>`);
+// name=prompt('이름을 입력하시오');
+// if(name=='') {
+//     document.write('이름이 빈 문자열로 입력됐습니다.');
+// } else {
+//     // document.write('이름 = '+name);
+//     document.write(`이름=${name}`);
+// }    
+
+// 이름을 입력받는다.
+// 이름이 구체적으로 입력됐으면 , "반갑습니다. xxxx님"
+// 이름이 빈 문자열이면, "반갑습니다. 고객님"
+// name=prompt('이름을 입력해주세요.');
+// if(name=='') {
+//     document.write('반갑습니다. 고객님')
+// } else {
+//     document.write(`반갑습니다. ${name}님<br>`);
+// }
+
+// n = parseInt('123');
+// document.write(`n=${n}<br>`);
+// str = n.toString();
+// document.write(`str=${str}<br>`);
+
+// n=eval('24+12');
+// document.write('24+12='+n+'<br>');
+
+// if(true===1){
+//     document.write('equals')
+// } else {
+//     document.write('not equals');
+// }
+
+// str='1';
+// str=str+'2';
+// str=str+'3';
+// document.write('<br>'+str);
+
+// str='1';
+// str='2'+str;
+// str='3'+str;
+// document.write('<br>'+str);
+</script>
+</html>

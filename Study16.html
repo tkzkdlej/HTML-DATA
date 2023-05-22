@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Study16</title>
+</head>
+
+
+<style>
+td {
+    width:40px; height: 40px; text-align: center; border-color: orchid; border-radius: 1ch; background-color: springgreen;
+}
+table {
+    background-color: aquamarine; border-color: slateblue;
+}
+</style>
+
+
+<body>
+
+<table id="tbl" border="5">
+
+    <tr>
+        <td></td><td></td><td></td><td></td><td></td>
+    </tr>
+    <tr>
+        <td></td><td></td><td></td><td></td><td></td>
+    </tr>
+    <tr>
+        <td></td><td></td><td></td><td></td><td></td>
+    </tr>
+    <tr>
+        <td></td><td></td><td></td><td></td><td></td>
+    </tr>
+    <tr>
+        <td></td><td></td><td></td><td></td><td></td>
+    </tr>
+
+</table>
+
+<button id="btnStart">Start</button>
+
+</body>
+
+
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script>
+
+    // let k=1;
+    
+$(document)
+    
+    // .on('click','td',function(){
+    //     if($(this).text()=='') { $(this).text(k++); }
+    // })        
+    
+.on('click','#btnStart',function(){
+        
+    m=$('#tbl tr:eq(0) td').length
+    n=$('#tbl tr').length
+
+    x=0;
+    y=0;
+
+    e_limit=$('#tbl tr:eq(0) td').length-1
+    s_limit=$('#tbl tr').length-1
+    w_limit=0
+    n_limit=1
+        
+    flag='e'
+        
+    for(num=1; num<=m*n; num++) {
+
+        if(flag=='e'){
+            $('#tbl tr:eq('+x+') td:eq('+y+')').text(num);
+            y++;
+            if(y==e_limit) {
+                flag='s'
+                e_limit--;
+            }
+
+        } else if(flag=='s'){
+            $('#tbl tr:eq('+x+') td:eq('+y+')').text(num);
+            x++;
+            if(x==s_limit){
+                flag='w'
+                s_limit--;
+            }
+            
+        } else if(flag=='w'){
+            $('#tbl tr:eq('+x+') td:eq('+y+')').text(num);
+            y--;
+            if(y==w_limit) {
+                flag='n'
+                w_limit++;
+            }
+        } else if(flag=='n'){
+            $('#tbl tr:eq('+x+') td:eq('+y+')').text(num);
+            x--;
+            if(x==n_limit) {
+                flag='e'
+                n_limit++;
+            }
+        }
+    }
+})
+    // let m=parseInt(prompt('행 갯수를 입력하시오'));
+    // let n=parseInt(prompt('열 갯수를 입력하시오'));
+    
+    // let str='';
+    // for(a=0; a<i; a++){
+    //     str+='<td></td>';
+    // }
+    // let str1='';
+    // for(a=0; a<j; a++) {
+    //     str1+='<tr>'+str+'</tr>';
+    // }
+
+    // let trstr='';
+    // for(a=0; a<m; a++){
+    //     trstr+='<tr>';
+    //     for(b=0; b<n; b++){
+    //         trstr+='<td></td>';
+    //     }
+    //     trstr+='</tr>';
+    // }
+    // $(this).before('<table id="tblData" border="5" style="border-color:brown;">'+trstr+'</table>');
+    // num=1;
+    // for(a=0; a<i; a++){
+    //     if(a%2==0){
+        //         for(b=0; b<i; b++){
+            //             $('#tblData tr:eq('+a+') td:eq('+b+')').text(num++);
+    //             $('#tblData tr:eq('+a+') td:eq('+b+')').css({'background-color':'yellow', 'color':'red'});
+    //         }
+    //     } else {
+        //         for(c=j-1; c>=0; c--) {
+            //             $('#tblData tr:eq('+a+') td:eq('+c+')').text(num++);
+            //             $('#tblData tr:eq('+a+') td:eq('+c+')').css({'background-color':'green', 'color':'blue'});
+            //         }
+    //     }
+    // }
+    // num=1;
+    // $('#tblData tr').each(function(){
+    //     $(this).find('td').each(function(){
+    //         $(this).text(num++);
+    //     })
+    // })
+// })
+</script>
+</html>

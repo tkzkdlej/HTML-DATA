@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>Q 키 이벤트 처리</title>
+  <script src="script.js"></script>
+</head>
+<body>
+  <h1>키보드의 'q' 키를 눌러 보세요.</h1>
+</body>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+  document.addEventListener('keydown', handleKeyPress);
+});
+
+function handleKeyPress(event) {
+  if (event.key === 'q' || event.key === 'Q') {
+    alert("Q 키가 눌렸습니다!");
+  }
+}
+qq
+</script>
+</html>

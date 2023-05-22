@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+td { height:40px;width:40px;border:1px solid blue; }
+table { border-collapse: collapse; }
+</style>
+<body>
+    <table style="display: none;">
+        <tr><td></td><td></td><td></td><td></td></tr>
+        <tr><td></td><td></td><td></td><td></td></tr>
+        <tr><td></td><td></td><td></td><td></td></tr>
+        <tr><td></td><td></td><td></td><td></td></tr>
+        <tr><td></td><td></td><td></td><td></td></tr>
+    </table><br><br>
+    <button id="btn">보이기</button><br><br>
+    <select></select>
+    <textarea></textarea>
+    <input type="text" title="who are you">who?<br>
+    <div style="background-color: yellow;width: 200px;height: 200px;">
+    </div><br><br>
+</body>
+<script src="https://code.jquery.com/jquery-latest.js"></script>
+<script>
+let i=0;
+$(document)
+.on('mouseenter','div',function(){
+    $(this).css('background-color','green');
+    $('input[type=text]').removeprop('title');
+})
+.on('mouseleave','div',function(){
+    $(this).css('background-color','blue');
+})
+.on('keydown','textarea',function(e, u){
+    if(e.keyCode==13) $(this).blur();
+})
+.on('click','#btn',function(){
+    // $('div').html('<input type=text value="천안시 동남구 청당동">');
+    // $('img'). // == $(':image').
+$('table').toggle(); // hide.show.toggle
+    // $('table').hide(); // == $('table').css('display','none');
+    // $('table').show(); // == $('table').css('display','block');
+    console.log('input length='+$(":input").length);
+})
+.on('click','td',function(){
+    console.log("table index="+$('table').index());
+})
+$('table').hover(
+    function(){ // mouseenter/mousein
+        console.log('hover'+(i++));
+    },
+    function(){ // mouseout/mouseleave
+        console.log('hovered'+(i++));
+    }
+)
+$(window)
+.resize(function(){
+    console.log('resize');
+})
+</script>
+</html>

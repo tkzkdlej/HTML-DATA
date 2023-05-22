@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Gussi Party - 파티용품 쇼핑몰</title>
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Nanum+Pen+Script&display=swap" rel="stylesheet">
+   <link href="https://fonts.googleapis.com/css2?family=Fasthand&display=swap" rel="stylesheet">
+   <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&display=swap" rel="stylesheet">
+   <link href="https://fonts.googleapis.com/css2?family=Edu+NSW+ACT+Foundation:wght@500&display=swap" rel="stylesheet">
+</head>
+<style>
+
+/* 전체 스타일 */
+* {
+   box-sizing: border-box;
+   margin: 0;
+   padding: 0;
+}
+
+/* 네비게이션 스타일 */
+nav {
+   background-color: #eee;
+   text-align: center;
+   padding: 10px;
+   /* background-color: #f8f8f8; */
+}
+
+nav ul {
+   display: flex;
+   list-style: none;
+   margin: 0;
+   padding: 10px;
+   list-style-type: none;
+   margin: 0;
+   padding: 0;
+   display: inline-block;
+}
+
+/* section ul li a {
+   text-align: center;
+   list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+    display: inline;
+    margin: 0 15px;
+    text-decoration: none;
+    color: #333;
+} */
+
+section,footer {
+   /* font-family: 'Black Han Sans', sans-serif; */
+   font-family: 'Gamja Flower', cursive;
+   font-size:larger
+}
+
+/* section ul li img {
+   text-align: center;
+    background-color: #f8f8f8;
+    padding: 10px;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+    display: inline;
+    margin: 0 15px;
+} */
+
+h1 {
+   font-family: 'Edu NSW ACT Foundation', cursive;
+   /* position: absolute;
+   top: 0;
+   left: 0;
+   margin: 0;
+   padding: 10px; */
+ }
+
+nav ul li {
+   margin-right: 20px;
+   font-family: 'Nanum Pen Script', cursive;
+   display: inline;
+   margin: 0 15px;
+}
+
+nav ul li a {
+   /* color: #333; */
+   /* text-decoration: none; */
+   font-size: x-large;
+   text-decoration: none;
+    color: #333;
+}
+
+a:hover {
+   color: #666;
+}
+
+img {
+   width:300px;
+   height:400px;
+}
+
+/* section li {
+
+} */
+
+nav ul li a:hover {
+   text-decoration: underline;
+}
+
+/* 로고 스타일 */
+.logo {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   padding: 20px;
+   background-color: #f0f0f0;
+}
+
+.logo h1 {
+   font-size: 3rem;
+}
+
+.logo p {
+   font-size: 1.5rem;
+   color: #666;
+}
+
+.grid-container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+        grid-gap: 10px;
+        width: 300px;
+        height: 300px;
+        margin: 0 auto;
+}
+
+.grid-item {
+        border: 1px solid black;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 2rem;
+}
+
+</style>
+<body>
+   <header>
+      <div class="logo">
+         <h1>Gussi Party</h1>
+         <p style="font-family: 'Fasthand', cursive;">Medio Hecho</p>
+      </div>
+      <nav>
+         <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Party Room</a></li>
+            <li><a href="#">Party Item</a></li>
+            <li><a href="#">Board</a></li>
+         </ul>
+      </nav>
+   </header>
+   <br>
+   <main>
+      <!-- <section class="banner">
+         <img src="party supplies 4.jpg" alt="파티용품 세일 배너">
+      </section> -->
+
+   <section class="product-list">
+   <!-- <div class="grid-container"> -->
+      <h2 align="center">인기 상품</h2><br>
+         <ul>
+            <li>
+               <img src="party supplies 9-1.jpg" alt="상품 이미지">
+               <h3>허니콤 데코레이션 키트</h3>
+               <p>가격: 22,900원</p>
+            </li>
+            <li>
+               <img src="party supplies 8.jpg" alt="상품 이미지">
+               <h3>밀크글라스 케익 스탠드</h3>
+               <p>가격: 95,000원</p>
+            </li>
+            <li>
+               <img src="party supplies 7.jpg" alt="상품 이미지">
+               <h3>Big! 점보 하트 컨페티 믹스(30g)</h3>
+               <p>가격: 3,600원</p>
+            </li>
+         </ul>
+   <!-- </div> -->
+   </section>
+   </main>
+   <br>
+   <footer>
+      <p style="font-family: 'Nanum Pen Script', cursive; font-size: larger;">&copy; Gussi Party 2023</p>
+   </footer>
+</body>
+</html>

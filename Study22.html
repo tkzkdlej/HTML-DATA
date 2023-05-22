@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parent</title>
+</head>
+
+<style>
+    td{height:60px;width:60px;border:1px solid blue}
+    table{border-collapse: collapse}
+</style>
+<body>
+    <table id ="tblData">
+        <tr>
+            <td></td>
+            <td>
+                <table>
+                    <tr>
+                        <td></td><td > </td>
+                        <td>
+                            <table>
+                                <tr>
+                                    <td></td><td id = "lastd">John</td>
+                                </tr>
+                                <tr>
+                                    <td><input type="text" id="name" disabled></td><td></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                   
+                </table>
+            </td>
+
+        </tr>
+        <tr>
+            <td></td><td></td>
+        </tr>
+    </table><br>
+    <button id="btnParent">Parent</button><br><br>
+    <button id="btnChildren">Children</button><br><br>
+    <button id= "btnClosest">Closest</button><br><br>
+</body>
+<script src = "http://code.jquery.com/jquery-latest.js"></script>
+<script>
+$(document)
+.ready(function(){
+    let str = '      Hello World     ';
+    // $.trim(str); deprecated
+    console.log('['+str.trim()+']');
+    console.log('['+str+']');
+    str=str.trim();
+    
+    console.log($.now());
+    var arr = [ "a", "b", "c", "d", "e" ];
+    console.log(arr);
+    console.log($.now());
+    brr = $.map( arr, function( n, i ){
+        return ( n.toUpperCase() +  i );
+    });
+    console.log($.now());
+    console.log(arr);
+    console.log(brr);
+    console.log($.now()); // 1970년1월1일0시0분0초 : 0
+    // $('$tblData tr').each(function(){
+       
+    //})
+    // $.each('#tblData tr',function(){
+
+    // })
+    // for(i=0; i<$('#tblData tr').length; i++){
+
+    // }
+
+    // console.log($('#tblData tr').length);
+    // for(i=0; i<$('#tblData tr').length; i++ ){
+    //     $('#tblData tr:eq('+i+')  td:eq(0)').text('Star');
+    // }
+})
+.on('click','#btnParent',function(){
+    $('#lastd').parent().css('background-color','red')
+    $('input:disabled').val('etoile')
+})
+.on('click','#btnChildren',function(){
+    $('#lastd').parent().parent().find('tr:eq(1) td:eq(0)').text('Jane'); //find는 
+})
+.on('click','#btnClosest',function(){
+    $('#lastd').closest('td').css('background-color','blue')
+    $('#name').val('xaexal')
+})
+
+$('#lastd').parent().parent().children().each(function(){
+
+})
+
+// <!-- <style>
+// td { height: 50px;width: 100px;border: 1px solid blue;}
+// table { border-collapse: collapse; }
+// </style>
+
+
+// <body>
+//     <table id="tblData">
+//         <tr>
+//             <td></td>
+//             <td>
+//                 <table>
+//                     <tr>
+//                         <td></td><td></td>
+//                         <td>
+//                             <table>
+//                                 <tr>
+//                                     <td></td><td id="lastd">John</td>
+//                                 </tr>
+//                                 <tr>
+//                                     <td><input type="text" id="name" disabled></td><td></td>
+//                                 </tr>
+//                             </table>
+//                         </td>
+//                     </tr>
+//                 </table>
+//             </td>
+//         </tr>
+//         <tr>
+//             <td></td><td></td>
+//         </tr>
+//     </table><br>
+//     <button id="btnParent">Parent</button><br><br>
+//     <button id="btnChildren">Children</button><br><br>
+//     <button id="btnClosest">Closest</button><br><br>
+// </body>
+// <script src="https://code.jquery.com/jquery-latest.js"></script>
+// <script>
+// $(document)
+// .ready(function(){
+//     // $('#tblData tr').each(function(){
+
+//     // })
+//     console.log($('#tblData tr').length);
+//     for(i=0; i<$('#tblData > tr').length; i++) {
+//         $('#tblData > tr:eq('+i+') > td:eq(0)').text('star');
+//     }
+// })
+// .on('click','#btnParent',function(){
+//     $('#lastd').parent().css('background-color','red');
+//     $('input:disabled').val('etoile');
+// })
+// .on('click','#btnChildren',function(){
+//     $('#lastd').parent().parent().find('tr:eq(1) td:eq(0)').text('Jane');
+// })
+// .on('click','#btnClosest',function(){
+//     $('#lastd').closest('td').css('background-color','blue');
+//     $('#name').val('xaexal');
+// }) -->
+</script>
+</html>

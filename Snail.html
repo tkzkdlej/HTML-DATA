@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+
+<style>
+td {
+    width:40px; height: 40px; text-align: center; border-color: orchid; border-radius: 1ch; background-color: springgreen;
+}
+table {
+    background-color: aquamarine; border-color: slateblue;
+}
+</style>
+
+
+<body>
+    <button id="make">make</button>&nbsp;&nbsp;&nbsp;&nbsp;
+    <button id="fill">fill</button>
+</body>
+
+
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script>
+$(document)
+
+.on('click','#make',function(){
+    let m=parseInt(prompt('행 갯수를 입력하시오'));
+    let n=parseInt(prompt('열 갯수를 입력하시오'));
+    
+    let trstr='';
+    for(a=0; a<m; a++){
+        trstr+='<tr>';
+            for(b=0; b<n; b++){
+            trstr+='<td></td>';
+        }
+        trstr+='</tr>';
+    }
+    $(this).before('<table id="tblData" border="5">'+trstr+'</table>');
+})
+
+.on('click','#fill',function(){
+
+    m=$('#tblData tr:eq(0) td').length
+    n=$('#tblData tr').length
+
+    x=0;
+    y=0;
+
+    e_limit=$('#tblData tr:eq(0) td').length-1
+    s_limit=$('#tblData tr').length-1
+    w_limit=0
+    n_limit=1
+        
+    flag='e'
+    
+    // for(num=1; num<=m*n; num++) {
+    num=1;    
+    let loof = setInterval(function(){
+        $('#tblData tr:eq('+x+') td:eq('+y+')').text(num++);
+        if(flag=='e'){
+            y++;
+            if(y==e_limit) {
+                flag='s'
+                e_limit--;
+            }
+            
+        } else if(flag=='s'){
+            x++;
+            if(x==s_limit){
+                flag='w'
+                s_limit--;
+            }
+            
+        } else if(flag=='w'){
+            y--;
+            if(y==w_limit) {
+                flag='n'
+                w_limit++;
+            }
+            
+        } else if(flag=='n'){
+            x--;
+            if(x==n_limit) {
+                flag='e'
+                n_limit++;
+            }
+        }
+        if(num>m*n) clearInterval(loof);
+        } ,150)  
+    // }
+})
+
+</script>
+</html>

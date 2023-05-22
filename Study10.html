@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+// let ob = {'name':'홍길동', 'age':25, 'mobile':'44445555', 'city':'아산시 배방읍', '44445555':'홍길동 전화번호'};
+// ob['religion']='Budhism'; // 추가(add)
+// delete ob['age'];
+
+// document.write(ob['name']+'<br>');
+// document.write(ob.name+'<br>');
+// document.write(ob['mobile']+'<br>');
+// document.write(ob['44445555']+'<br>');
+// ob['name']='홍길순';
+// document.write(ob['name']+'<br>');
+// document.write(ob['mobile']+'<br>');
+// document.write(ob['44445555']+'<br>');
+// ob['name']=null;
+// document.write(ob['name']+'<br>');
+// document.write(ob['mobile']+'<br>');
+// document.write(ob['44445555']+'<br>');
+
+// document.write('---------------------------------<br>');
+
+// let ar = [{'name':'John','gender':'Male'},
+//           {'name':'Jane','gender':'Female'},
+//           {'name':'Johanson','age':30, 'mobile':'01099998888'}];
+
+// for(let i=0; i<ar.length; i++) {
+//     document.write(ar[i]['name']+'<br>');
+// }
+
+// let arStudent = [{'name':'John','byear':1999},{'name':'Jane','byear':2001},
+//                  {'name':'Jacob', 'byear':1995}];
+
+// let arMenu = [];
+// let name=prompt("메뉴명을 입력하시오. ['':종료]");
+// while(name!='') {
+//     let price = prompt("가격을 입력하시오. ['':종료]");
+//     let ob={};
+//     ob['name']=name;
+//     ob['price']=parseInt(price);
+//     arMenu.push(ob);
+
+//     name=prompt("메뉴명을 입력하시오. ['':종료]");
+// }
+// showMenu('name', 'price', arMenu.length);
+
+
+
+// function showMenu(n,p,size) {
+//     for(let i=0; i<size; i++) {
+//         let ob = arMenu[i];
+//         document.write(ob[n]+', '+ob[p]+'원<br>');
+//     }
+// }
+
+let student=[];
+
+while(true) {
+    let scoreE = getScore('영어');
+    if(scoreE==-1) break;
+
+    let scoreM = getScore('수학');
+    if(scoreM==-1) break;
+
+    let scoreK = getScore('국어');
+    if(scoreK==-1) break;
+   
+    let ob = {'eng':scoreE, 'math':scoreM, 'kor':scoreK };
+    student.push(ob);
+}
+
+let sumE=0; sumM=0; sumK=0;
+for(let i=0; i<student.length; i++) {
+    let ob = student[i];
+    document.write('영어점수 = '+ob['eng']+'점, 수학점수 = '+ob['math']+'점, 국어점수 = '+ob['kor']+'점<br>');
+    sumE+=ob['eng'];
+    sumM+=ob['math'];
+    sumK+=ob['kor'];
+}
+
+showResult(sumE, sumM, sumK, student.length);
+
+
+function getScore(str) {
+    let score = prompt(str+'점수를 입력하세요 [-1:종료]');
+    return parseInt(score);
+}
+
+function showResult(totalE, totalM, totalK, howmany) {
+    document.write('영어점수 총점 = '+totalE+'점, 수학점수 총점 = '+totalM+'점, 국어점수 총점 = '+totalK+'점<br>');
+    document.write('영어점수 평균 = '+(totalE/howmany)+'점, 수학점수 평균 = '+(totalM/howmany)+'점, 국어점수 평균 = '+(totalK/howmany)+'점<br>');
+}
+
+// let ob = {  'plus': (a,b) => { return a+b},  // lambda expression
+//             'minus': (a,b) => {return a-b},
+//             'multi': (a,b) => {return a*b},
+//             'divide': (a,b) => { 
+//             if(b==0) {
+//                 document.write('divide by zero');
+//                 return 0;
+//             }
+//             return a/b;
+//             }
+//         };
+// x=ob['plus'](10,15);
+// document.write(x+'<br>');
+
+// x=ob['minus'](10,15);
+// document.write(x+'<br>')
+</script>
+</html>

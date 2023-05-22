@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <title>Window</title>
+</head>
+
+<style>
+table { border-collapse: collapse; }
+td{ width: 40px;height: 40px;border: 1px solid red;text-align: center; }
+div { display: none; }
+</style>
+
+<body>
+<button id="btnWindow">윈도우열기</button>
+<div id="dvWin" title="대안 윈도우">
+<table>
+
+    <tr>
+        <td>1</td><td>2</td><td>3</td>
+    </tr> 
+
+    <tr>
+        <td>4</td><td>5</td><td>6</td>
+    </tr> 
+
+</table>
+<button id="btnClose">윈도우닫기</button>
+</div>
+</body>
+<script src="https://code.jquery.com/jquery-latest.js"></script>
+<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+<script>
+$(document)
+
+// window.open('http://www.amazon.com');
+.on('click','#btnWindow',function(){
+    $('#dvWin').dialog({autoOpen:true});
+})
+
+
+.on('click','#btnClose',function(){
+    $('#dvWin').dialog('close');
+})
+</script>
+</html>

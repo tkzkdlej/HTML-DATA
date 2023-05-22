@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+</head>
+<style>
+table {
+    width: 300px; height: 300px;
+}
+button {
+    border-radius: 1ch;
+}
+input {
+    width: 150px;
+}
+body
+{
+    background-image: url('Camp Nou2.jpg');
+    background-size: 100%;
+}
+</style>
+<body>
+<table border="5" align="center">
+
+    <tr><h1 align="center" style="color:rgb(255, 12, 12);">로그인</h1></tr>
+
+    <tr>
+        <td>
+        <table align="center">
+
+            <tr>
+                <td style="color: rgb(212, 255, 22);">로긴아이디 </td><br>
+                <td style="color: rgb(212, 255, 22);">: <input type="text" id="id"></td>
+            </tr>
+
+            <tr>
+                <td style="color: rgb(212, 255, 22);">비밀번호 </td><br>
+                <td style="color: rgb(212, 255, 22);">: <input type="password" id="passcode"></td>
+            </tr>
+
+            <tr>
+                <td colspan="2" align="center"><button id="btnlg">로그인</button>&nbsp;&nbsp;<button id="btncl">취소</button></td>
+            </tr>
+    
+            <tr>
+                <td colspan="2" align="right" style="vertical-align: bottom;"><a href="signin.html" style="color: rgb(255, 12, 12);">회원가입</a></td>
+            </tr>
+
+        </table>
+        </td>
+    </tr>
+
+</table>
+</body>
+<script src="https://code.jquery.com/jquery-latest.js"></script>
+<script>
+$(document)
+
+
+.on('click','#btnlg',function(){
+    document.location = 'home.html';
+})
+
+
+.on('click','#btncl',function(){
+    document.location = 'home.html';
+})
+</script>
+</html>

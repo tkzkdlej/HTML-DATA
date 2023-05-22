@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>마방진</title>
+</head>
+<style>
+td {
+    width:40px; height: 40px; text-align: center; border-color: orchid; border-radius: 1ch; background-color: springgreen;
+}
+table {
+    background-color: aquamarine; border-color: slateblue;
+}
+</style>
+<body>
+    
+<button id="btnStart">Start</button>&nbsp;&nbsp;&nbsp;&nbsp;
+<button id="btnfill">fill</button>
+
+</body>
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script>
+    
+m=prompt('행 갯수를 입력하시오');
+m=parseInt(m);
+n=prompt('열 갯수를 입력하시오');
+n=parseInt(n);
+$(document)
+
+.on('click','#btnStart',function(){
+    str='';
+
+        for(j=0; j<m; j++){
+            str+='<tr>'
+                for(i=0; i<n; i++){
+                    str+='<td></td>'
+                }
+            str+='</tr>'
+            }
+    $(this).before('<table id="tblData" border="5">'+str+'</table>');
+})
+.on('click','#btnfill',function(){
+    i= m-1;
+    j=(m-1)/2;
+    num=1;
+
+    let loof = setInterval(function(){
+    // for(num=1; num<=m*n; num++){
+        $(sel(i,j)).text(num++);
+        i++;
+        j--;
+        if(i>m-1){i=0;}
+        if(!$((sel(i,j))).text()==''){ i=i-2; j++; }
+        if(j<0){j=m-1;}
+        if(num>m*n) clearInterval(loof);
+    } ,1000)  
+    // }
+})
+function sel(x,y){
+    return '#tblData tr:eq('+x+') td:eq('+y+')';
+}
+</script>
+</html>

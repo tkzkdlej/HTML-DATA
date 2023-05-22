@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>마방진 Javascr</title>
+</head>
+<body>
+    
+</body>
+<script>
+function magicSquare(){
+
+    var arr = new Array(5);
+
+    for (let i=0; i<5; i++) {
+        arr[i] = new Array(5).fill(0);
+    }
+
+    var i = 0;
+    var middle = parseInt(5/2);
+
+    for(let k=1; k<=25; k++) {
+        arr[i][middle] = k;
+
+        if (k%5==0) {
+            i++;
+            continue;
+        }
+
+        else {
+            i--; middle++;
+            if(i<0) i=4;
+            if(middle>4) middle=0;
+        }
+
+    }
+    return arr;
+}
+console.log(magicSquare());
+</script>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+
+<body>
+
+    <label id="john">john</label><br>
+    <label id="jacob">jacob</label><br>
+    <label id="johanson">johanson</label><br>
+    <label id="james">james</label><br>
+    <label id="johnny">johnny</label><br>
+    <label id="jefferson">jefferson</label><br>
+    <label id="jason">jason</label><br>
+    <label id="Mark">Mark</label><br>
+    <label id="Mickey">Mickey</label><br>
+    <label id="Mini">Mini</label><br>
+    <label id="Marlie">Marlie</label><br><br><br>
+    <input type="radio" name="gender" value="one">남성
+    <input type="radio" name="gender" value="two">여성<br><br>
+    <input type="radio" name="marriage" value="one">미혼
+    <input type="radio" name="marriage" value="two">기혼<br><br>
+    <button id="btnChange">change</button><br>
+
+</body>
+
+
+<script src="https://code.jquery.com/jquery-latest.js"></script>
+<script>
+$(document)
+.on('click','#btnChange',function(){
+    $('input[type=radio][name=gender][value=one]').prop('checked',true);
+})
+</script>
+</html>

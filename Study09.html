@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+ arScore = [];
+ score=0;
+ document.write('[영어점수통계 계산]<br>');
+ document.write('<br>');
+
+ while(score!='-1') {
+    score=prompt('점수를 입력하세요. [-1:종료]');
+    n = parseInt(score);
+    arScore.push(n);
+    if(n==-1) arScore.pop(-1);
+}
+
+total=0;
+// for(a=0; a<arScore.length; a++) {
+//     document.write(arScore[a]+'점'+'<br>');
+//     total+=arScore[a];    
+// }
+for(let x of arScore) {  // Advanced for문
+    document.write(x+'점'+'<br>');
+    total+=x;
+}
+
+document.write('<br>');
+document.write('학생 수 = '+arScore.length+'명'+'<br>');
+
+document.write('<br>');
+document.write('총점 = '+total+'점'+'<br>');
+
+document.write('<br>');
+document.write('영어점수 평균 = '+total/arScore.length+'점');
+
+</script>
+</html>

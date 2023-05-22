@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>signin</title>
+</head>
+<style>
+input {
+    width: 150px;
+}
+button {
+    border-radius: 1ch;
+}
+body
+{
+    background-color: antiquewhite;
+    background-size: 100%;
+}
+</style>
+<body>
+<table align="center">
+
+    <tr><h1 align="center">회원가입</h1></tr>
+
+    <tr>
+        <td>
+        <table align="center" border="1">
+
+            <tr>
+                <td>로긴아이디: </td><br>
+                <td><input type="text" id="id"></td>
+            </tr>
+
+            <tr>
+                <td>비밀번호: </td><br>
+                <td><input type="password" id="passcode"></td>
+            </tr>
+
+            <tr>
+                <td>비밀번호확인: </td><br>
+                <td><input type="password" id="codecf"></td>
+            </tr>
+
+            <tr>
+                <td>실명: </td><br>
+                <td><input type="text" id="name"></td>
+            </tr>
+
+            <tr>
+                <td colspan="2">성별 <input type="radio" name="gender" id="male" value="남성">남성
+                    <input type="radio" name="gender" id="female" value="여성">여성</td>   
+            </tr>
+
+            <tr>
+                <td>모바일: </td><br>
+                <td><input type="text" id="mobile"></td>
+            </tr>
+        </td>
+        </table>
+    </tr>
+    <tr>
+        <td>
+        <table align="center" border="1">
+            <tr>
+                <td colspan="2">관심분야</td>
+            </tr>
+            
+            <tr>
+                <td colspan="2" align="center"><input type="checkbox" name="interest" value="정치">정치&nbsp;
+                    <input type="checkbox" name="interest" value="경제">경제&nbsp;
+                    <input type="checkbox" name="interest" value="사회">사회<br>
+                    <input type="checkbox" name="interest" value="문화">문화&nbsp;
+                    <input type="checkbox" name="interest" value="예술">예술&nbsp;
+                    <input type="checkbox" name="interest" value="연예">연예<br>
+                    <input type="checkbox" name="interest" value="스포츠">스포츠
+                    <input type="checkbox" name="interest" value="부동산">부동산
+                    <input type="checkbox" name="interest" value="외교">외교<br><br>
+                </td>
+            </tr>
+
+            <tr>
+                <td colspan="2" align="center"><label id="lblInterest"></label><br></td>
+            </tr>
+
+            <tr>
+                <td colspan="2" align="center"><button id="register">등록</button>&nbsp;&nbsp;<button id="cancel">취소</button></td>
+            </tr>
+        </table>
+        </td>
+    </tr>
+</table>
+</body>
+<script src="https://code.jquery.com/jquery-latest.js"></script>
+<script>
+$(document)
+
+
+.on('click','[name=interest]',function(){
+    let str='';
+
+    for(i=0; i<$('[name=interest]').length; i++) {
+        let ptr = '[name=interest]:eq('+i+')';
+
+        if($(ptr).prop('checked')) {
+           str+=','+$(ptr).val();
+        }
+
+    }
+    if(str=='') { alert('최소한 하나 이상의 관심분야를 선택하십시오'); }
+    
+
+    $('#lblInterest').text(str);
+})
+
+
+.on('click','#register',function(){
+    alr ='로긴아이디: '+$('#id').val()+'\n'
+        +'실명: '+$('#name').val()+'\n'
+        +'성별: '+$('[name=gender]:checked').val()+'\n'
+        +'모바일: '+$('#mobile').val()+'\n'
+        +'관심분야: '+$('#lblInterest').text();
+
+    alert(alr);
+
+    document.location = 'home.html';
+})
+
+
+.on('click','#cancel',function(){
+    history.back();
+})
+</script>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+table { border-collapse: collapse; }
+td { width: 40px; height: 40px; border: 1px solid blue; text-align: center;}
+</style>
+
+<body>
+    <table id="tbl" align="center">
+    <tr>
+        <td>10</td><td>-5</td><td>3</td><td>7</td><td>1</td><td>0</td><td>-6</td><td>4</td><td>9</td><td>2</td>
+    </tr>
+    <tr>
+        <td colspan="10" align="center"><button id="sort">Basic sort</button>&nbsp;&nbsp;&nbsp;<button id="sort1">Effect sort1</button></td>
+    </tr>
+    </table><br>
+</body>
+
+<script src="https://code.jquery.com/jquery-latest.js"></script>
+<script>
+$(document)
+
+.on('click','#sort',function(){
+    for(i=0; i<$('#tbl tr td').length; i++) {
+        for(j=i+1; j<$('#tbl tr td').length; j++) {
+            num=parseInt($('#tbl tr td').eq(i).text());
+            num1=parseInt($('#tbl tr td').eq(j).text());
+            if(num>num1) {
+                $('#tbl tr td').eq(i).text(num1);
+                $('#tbl tr td').eq(j).text(num);
+            }
+        }
+    }
+})
+
+
+.on('click','#sort1',function(){
+    i=0;
+    clock=setInterval(function(){
+
+        for(a=i+1; a<$('#tbl tr td').length; a++) {
+            num=parseInt($('#tbl tr td').eq(i).text());
+            num1=parseInt($('#tbl tr td').eq(a).text());
+            if(num>num1){
+                $('#tbl tr td').eq(i).text(num1);
+                $('#tbl tr td').eq(a).text(num);
+            }
+        }
+        i++;
+
+        for(b=0; b<$('#tbl tr td').length; b++) {
+            if($('#tbl tr td').eq(b).text()==10) {  
+                $('#tbl tr td').eq(b).css('background-color','green')        
+            } else {
+                $('#tbl tr td').eq(b).css('background-color','white')
+            }
+        }
+        if(i>=$('#tbl tr td').length) {clearInterval(clock)};            
+    },200);
+})
+</script>
+</html>

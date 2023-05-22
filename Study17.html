@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Study17</title>
+</head>
+<style>
+div { width: 100px;height: 100px;background-color: red; }
+td { width: 40px;height: 40px; border: 1px solid blue;}
+table { border-collapse: collapse;}
+</style>
+<body>
+    <div>
+    </div><br>
+    <table>
+        <tr><td>4</td><td>5</td><td>6</td></tr>
+    </table><br>
+    <div>
+    </div><br>
+    <button id="btnBefore">Before</button>
+    <button id="btnAfter">After</button>
+    <button id="btnPrepend">Prepend</button>
+    <button id="btnAppend">Append</button>
+</body>
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script>
+$(document)
+.on('click','div:eq(0)',function(){
+    // $(this).after('<p style="color:white;">This is in div</p>')
+})
+.on('click','#btnBefore',function(){ // 태그 바깥 앞에
+    // $('table').before('<p>Hello World</p>');
+    $('tr').children().css('border','3px solid blue');
+})
+.on('click','#btnAfter',function(){ // 태그 바깥 뒤에
+    $('table').after('<p>Good Morning Vietnam</p>');
+})
+.on('click','#btnPrepend',function(){ // 태그 안 앞에
+    $('table').prepend('<tr><td>1</td><td>2</td><td>3</td></tr>');
+})
+.on('click','#btnAppend',function(){ // 태그 안 뒤에
+    $('table').append('<tr><td>7</td><td>8</td><td>9</td></tr>');
+})
+</script>
+</html>

@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cafe</title>
+</head>
+<style>
+body { font-size: 18px; }
+.line { border:3px solid rgb(129, 194, 197); }
+#tbl1 { height:900px; width:1250px; border-collapse:collapse; }
+#tbl1:first-child { text-align:center;background-color:rgb(151, 228, 128); }
+
+.import {
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 16px;
+    font-style:oblique;
+    font-weight:bolder;
+}
+button {
+    border-radius: 1ch;
+    border-color: azure;
+    font-size: 18px;
+}
+input {
+    border-radius: 1ch;
+    border-color: azure;
+    font-size: 18px;
+}
+select {
+    border-radius: 1ch;
+    border-color: azure;
+    width: 240px;font-size: 17px;
+}
+
+
+</style>
+<body>
+    <table id=tbl1 align="center" class="import">
+
+        <tr id="tr1">
+            <td colspan="3" class="line"><h1>카페관리</h1></td>
+        </tr>
+
+        <tr>
+            <td valign="top" align="center" class="line" style="background-color:rgb(238, 234, 176);">
+                <table>
+
+                    <tr>
+
+                        <tr align="left">
+                            <td colspan="2"><h3>메뉴목록</h3></td>
+                        </tr>
+
+                        <td colspan="2">
+
+                            <select id="sel" size="12">
+                                <option value="Latte,3000">Latte, 3000</option>
+                                <option value="Mocca,3500">Mocca, 3500</option>
+                                <option value="Americano,2500">Americano, 2500</option>
+                                <option value="Espresso,2700">Espresso, 2700</option>
+                                <option value="Cappuccino,3600">Cappuccino, 3600</option>
+                                <option value="Greentea,2800">Green Tea, 2800</option>
+                            </select>
+
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>메뉴명</td><td><input type=text id=name name=name readonly size="13"></td>
+                    </tr>
+
+                    <tr>
+                        <td>수량</td><td><input type=number id=qty name=qty style="width: 120px;" min="1">잔</td>
+                    </tr>
+
+                    <tr>
+                        <td>가격</td><td><input type=number id=price name=price readonly style="width: 120px;">원</td>
+                    </tr>
+
+                    <tr>
+                        <td><button id="btnSelect">주문</button></td>
+                        <td align="right"><button id="btnReset">지우기</button></td>  
+                    </tr>
+
+                </table>
+            </td>
+            <td valign="top" align="center" class="line" style="background-color:rgb(238, 234, 176);width: 120px;">
+                <table>
+
+                    <tr align="left">
+                        <td colspan="2"><h3>주문내역</h3></td>
+                    </tr>
+
+                    <tr>
+                        <td colspan="2">
+                            <select id="sel1" size="13" style="width: 350px;">
+                            </select>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>주문금액</td><td><input type="text" id="orp" readonly style="width: 120px;" value="0">원</td>
+                    </tr>
+
+                    <tr>
+                        <td>모바일번호</td><td><input type="text" id=mobile name=mobile style="width: 120px;">번</td>
+                    </tr>
+                    
+                    <tr><td colspan="2" align="center">[모바일번호를 입력하면 5% 할인!!]</td></tr>
+                    
+                    <tr>
+                        <td><button id="btnOrder">주문완료</button></td>
+                        <td align="right"><button id="btnCancel">취소</button></td>
+                    </tr>
+
+                </table>
+            </td>
+            <td valign="top" align="center" class="line" style="background-color:rgb(238, 234, 176);">
+                <table>
+
+                    <tr align="left">
+                        <td><h3>매출내역</h3></td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <select id="sales" style="width: 350px;" size="15">
+                            </select>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>매출총액: <label id="lbl">0</label>원</td>
+                    </tr>
+
+                    <tr>
+                        <td align="center"><button id="btnRefresh">새로고침</button></td>
+                    </tr>
+
+                </table>
+            </td>
+        </tr>
+
+        <tr style="height:150px;background-color:rgb(151, 228, 128);vertical-align:bottom;" class="line">
+            <td style="text-align:left;">
+                @CopyRight Mesi Coffee
+            </td>
+            <td colspan="2" style="text-align:right;">
+                Designed by 김민석
+            </td>
+        </tr>
+
+    </table>
+</body>
+<script src="https://code.jquery.com/jquery-latest.js"></script>
+<script>
+$(document)
+
+.on('click','#sel',function(){
+    str=$('option:selected').text();
+
+    ar=str.split(',');
+
+    ar[1]=ar[1].trim();
+
+    $('#name').val(ar[0]);
+    $('#qty').val(1);
+    $('#price').val(ar[1]);
+})
+
+
+.on('change','#qty',function(){
+        count=$('#qty').val();
+        $('#price').val(ar[1]*count);
+})
+
+
+.on('click','#btnReset',function(){
+    $('#name').val('');
+    $('#qty').val(1);
+    $('#price').val('');
+})
+
+
+.on('click','#btnSelect',function(){
+    name=$('#name').val();
+    count=$('#qty').val();
+    price=$('#price').val();
+
+    if($('#name').val()=='') {
+        $('#sel1').val('');
+        $('#orp').val();
+    } else {
+        str='<option>'+'메뉴명: '+name+',   '+count+'잔'+',   '+'가격: '+price+'원 </option>';
+        $('#sel1').append(str);
+
+        p=parseInt(price);
+        orderp=$('#orp').val();
+        total=p+parseInt(orderp);
+    
+        $('#orp').val(total);
+    }
+
+    // total=0;
+    // for(i=0; i<$('#sel1 option').length; i++){
+    //     total=total+parseInt(price);
+    //     $('#orp').val(total);
+    // }
+    
+    $('#name').val('');
+    $('#qty').val(1);
+    $('#price').val(''); 
+})
+
+
+.on('click','#btnCancel',function(){
+    $('#sel1').empty();
+    $('#orp').val(0);
+    $('#mobile').val('');
+})
+
+
+.on('click','#btnOrder',function(){
+    let current=new Date();
+    hour=current.getHours();
+    min=current.getMinutes();
+
+    phone=$('#mobile').val();
+    sel=$('#orp').val();
+    
+    allprice = $('#orp').val();  if(allprice==0){return false}
+
+    if(phone=="") { 
+        phone='-';   
+    } else {
+        sel=(sel-(sel*(5/100)));
+    }
+
+    str='<option>'+hour+'시 '+min+'분, '+parseInt(sel)+'원, '+phone+'</option>';
+
+    $('#sales').append(str);
+        
+    $('#btnCancel').trigger('click');
+ 
+    a=parseInt(sel);
+    b=parseInt($('#lbl').text());
+    totals=a+b;
+
+    $('#lbl').text(totals);
+})
+
+
+.on('click','#btnRefresh',function(){
+    $('#sales').empty();
+    $('#lbl').text('0');
+})
+</script>
+</html>

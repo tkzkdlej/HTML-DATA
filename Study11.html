@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Date</title>
+</head>
+<body>
+    
+</body>
+<script>
+// let today = new Date();
+// document.write('today = '+today+'<br>');
+
+// let year = today.getFullYear();
+// document.write('year = '+year+'<br>');
+
+// let month = today.getMonth();
+// document.write('month = '+month+'<br>');
+
+// let date = today.getDate();  // 날짜
+// document.write('date = '+date+'<br>');
+
+// let dow = today.getDay();  // 요일 Day of Week 일:0, 월:1, 화:2, 수:3, 목:4, 금:5, 토:6
+// document.write('dow = '+dow+'<br>');
+
+// let hour = today.getHours();
+// document.write('hour = '+hour+'<br>');
+
+// let minute = today.getMinutes();
+// document.write('minute = '+minute+'<br>');
+
+// let second = today.getSeconds();
+// document.write('second = '+second+'<br><br>');
+
+// let myBirth = new Date(1998,8,22,04,30,35);
+// document.write(myBirth+'<br><br>');
+
+// let uBirth = new Date();
+// uBirth.setFullYear(1967);
+// uBirth.setMonth(6);
+// uBirth.setDate(06);
+// uBirth.setHours(02);
+// uBirth.setMinutes(18);
+// uBirth.setSeconds(48);
+// document.write(uBirth+'<br><br>');
+
+// let yester = new Date(2023,0,18,0,0,0); // upto milliseconds 1/1000
+// let now = new Date(2023,0,19,0,0,0);
+// let gap = now-yester;
+// document.write('gap = '+gap/(24*60*60*1000)+'일<br>');
+
+let born = new Date(1998,7,22,04,30,30);
+let frnow = new Date(2023,0,19,14,17,00);
+let gap = frnow-born;
+document.write('life = '+gap/(24*60*60*1000)+'일<br>');
+
+
+</script>
+</html>

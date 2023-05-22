@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <link rel="stylesheet" href="./style.css"/>
+    <title>Gussi Party - 파티용품 쇼핑몰</title>
+</head>
+<style>
+   
+.html, body {margin: 0; padding:0}
+.container {
+    /* background-color: purple; */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.header {
+    /* background-color: red; */
+    flex: 0 200px;
+    display: flex;
+    flex-direction: column;
+
+
+    /* position: fixed; 메뉴 상단바 스크롤 내려도 상단에 고정! */
+    /* top: 0; */
+    /* width: 100% */
+    /* left: 0;
+    right: 0; */
+    
+}
+
+
+.header > .logo-section {
+    /* background-color: red; */
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    font-size: 80px;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Nanum Gothic';
+    font-style: italic;
+     font-style: italic;
+     font-weight: 400;
+    src: url(폰트경로/NanumGothic-Regular-italic.woff2) format("woff2"), 
+        url(폰트경로/NanumGothic-Regular-italic.woff) format("woff"), 
+}
+.header > .logo-section > img {
+    /*width: 250px;*/
+}
+
+.header > .gnb {
+    /* background-color: orange; */
+    flex: 0 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 22px;
+}
+.header > .gnb > .menu-btn {
+    /* background-color: brown; */
+    flex: 0 120px;
+    text-align: center;
+}
+
+
+.content {
+    background-color: aqua;
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+}
+
+.shoppingcart{
+    background-color: palegoldenrod;
+    flex:2;
+}
+
+.order{
+    flex:1.3;
+    background-color: rebeccapurple;
+    display: flex;
+    flex-direction: column;
+}
+
+.order2{
+    background-color: darkgoldenrod;
+    flex:2;
+}
+.order3{
+    background-color: fuchsia;
+    flex:1;
+}
+
+
+.footer {
+    flex: 0 80px;
+    background-color: chartreuse;
+}
+
+.menu-icon:hover {
+  transform: scale(1.2);
+}
+
+
+/* Dropdown menu styles */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-toggle {
+    cursor: pointer;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    background-color: white;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    min-width: 160px;
+    padding: 12px 16px;
+    font-size: 16px;
+}
+
+.dropdown-menu a {
+    color: black;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-menu a:hover {
+    background-color: #f1f1f1;
+}
+
+a {
+  text-decoration-line: none;
+/*   text-decoration-line: underline; */
+/*   text-decoration-line: overline; */
+/*   text-decoration-line: line-through; */
+/*   text-decoration-line: underline line-through overline; */
+}
+
+a { text-decoration: none; color: black; }
+    a:visited { text-decoration: none; }
+    a:hover { text-decoration: none; }
+    a:focus { text-decoration: none; }
+    a:hover, a:active { text-decoration: none; }
+
+</style>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <!-- Logo -->
+            <div class="logo-section">
+                <a href = mainmall.html><img src="Gussi Party Logo.jpg"></a>
+                <!-- <br class="Famous ">  -->
+            </div>
+            <!-- GNB -->
+            <div class="gnb">
+                <div class="menu-btn"><a href= >Party Room</a></div>
+                <div class="menu-btn"><a href=>Party Items</a></div>
+                <div class="menu-btn"><a href=Q&Amall.html>Board</a></div>
+                <div class="menu-btn dropdown">
+                    <img src="mypageicon.png" width="30px" class="menu-icon dropdown-toggle" alt="마이페이지">
+                    <div class="dropdown-menu">
+                        <a href="loginmall.html">로그인</a>
+                        <a href="joinmall.html">회원가입</a>
+                        <a href="#">마이페이지</a>
+                    </div>&nbsp;
+                    <img src="shoppingcart.ico" width="30px" class="menu-icon dropdown-toggle" alt="장바구니">
+                    <div class="dropdown-menu">
+                        <a href="#">찜한목록</a>
+                        <a href="shoppingCartmall.html">장바구니 전체목록</a>
+                    </div>
+                </div>
+        </div>
+        </div>
+        <!-- Content -->
+        <div class="content">
+            <div class=shoppingcart>Shopping Cart</div>
+            <div class="order">
+                <div class="order2">Order</div>
+                <div class="order3"></div>
+            </div>
+        </div>
+        <!-- Footer -->
+        <div class="footer">
+            Copyright by PRoom
+        </div>
+    </div>
+</body>
+<script src="https://code.jquery.com/jquery-latest.js"></script>
+
+<script>
+    $(document).ready(function() {
+    $(".dropdown-toggle").hover(
+        function() {
+            $(this).next(".dropdown-menu").stop(true, true).slideDown("fast");
+        },
+        function() {
+            $(this).next(".dropdown-menu").stop(true, true).slideUp("fast");
+        }
+
+
+        
+    );
+});
+
+</script>
+</html>

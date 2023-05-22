@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <title>호텔객실예약관리 - 객실예약관리</title>
+</head>
+
+<style>
+#tbl1 { width:860px;border-collapse:collapse; }
+#tbl2 { border: 3px solid rgb(219, 118, 59); }
+
+body {
+    background-image: url('hotel1.jpg');
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+.import {
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 16px;
+    font-style:oblique;
+    font-weight:bolder;
+}
+button {
+    border-radius: 1ch;
+    border-color: azure;
+}
+input {
+    border-radius: 1ch;
+    border-color: azure;
+}
+select {
+    border-radius: 1ch;
+    border-color: azure;
+}
+</style>
+
+<body>
+<table id="tbl1" align="center" style="width: 900px;height: 300px;background-color: rgb(243, 237, 233);" class="import">
+    <tr>
+        <td> <!--가장 큰 table-->
+
+            <table id="tbl2" style="width: 900px;" border="3">
+                <tr>
+                    <td style="width:33%" align="center"><a href="room.html">객실관리</a>&nbsp;&nbsp;&nbsp;예약관리&nbsp;&nbsp;&nbsp;</td> 
+                    
+                    <td style="width:34%;text-align:center;"><h2>호텔 객실 예약관리</h2></td> 
+                    
+                    <td style="width:33%" align="center">Designed<br> by MINSUK KIM</td>
+                </tr>
+            </table>
+
+            <table id="tbl2" style="width: 900px;" border="1">
+                <tr>
+
+                    <td style="width: 33%;"> <!--1번째 td-->
+
+                        <table align="center">
+                            <tr>
+                                <td>체크인&nbsp;</td>  <td><input id="chkin" type="date" style="width: 110px"> ~ </td>
+                            </tr>
+                            <tr>
+                                <td>체크아웃&nbsp;</td> <td><input id="chkout" type="date" style="width: 110px"></td>
+                            </tr>
+                            <tr>
+                                <td>객실타입&nbsp;</td> 
+
+                                <td>
+                                    <select id="sel" style="width: 110px">
+                                        <option value="Suite Room">Suite Room</option>
+                                        <option value="Family Room">Family Room</option>
+                                        <option value="Deluxe Room">Deluxe Room</option>
+                                        <option value="Double Room">Double Room</option>
+                                        <option value="Single Room">Single Room</option>
+                                    </select>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td colspan="2" align="center"><button>찾기</button></td>
+                            </tr>
+
+                            <tr>
+                                <td colspan="2" align="center">
+
+                                    <select id="sel1" size="20" style="width: 250px;">
+                                        <option>예약가능한 객실목록</option>
+                                    </select>
+
+                                </td>
+                            </tr>
+                        </table>
+
+                    </td> <!--1번째 td-->
+
+                    <td style="width: 34%;"> <!--2번째 td-->
+
+                        <table align="center">
+                            <tr>
+                                <td>체크인&nbsp;</td><td><input id="chkin1" type="date" style="width: 110px"> ~ </td>
+                            </tr>
+
+                            <tr>
+                                <td>체크아웃&nbsp;</td><td><input id="chkout1" type="date" style="width: 110px"></td>
+                            </tr>
+
+                            <tr>
+                                <td>객실번호&nbsp;</td><td><input id="num" type="number" value="1" min="1" max="5" style="width: 110px"></td>
+                            </tr>
+
+                            <tr>
+                                <td>객실명&nbsp;</td>
+
+                                <td>
+                                    <select id="sel2" style="width: 110px;">        
+                                        <option value="백두산">백두산</option>
+                                        <option value="한라산">한라산</option>
+                                        <option value="광덕산">광덕산</option>
+                                        <option value="설악산">설악산</option>
+                                        <option value="태조산">태조산</option>
+                                    </select>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>객실타입&nbsp;</td>
+
+                                <td>
+                                    <select id="sel3" style="width: 110px;">        
+                                        <option value="Suite Room">Suite Room</option>
+                                        <option value="Family Room">Family Room</option>
+                                        <option value="Deluxe Room">Deluxe Room</option>
+                                        <option value="Double Room">Double Room</option>
+                                        <option value="Single Room">Single Room</option>
+                                    </select>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>숙박인원&nbsp;</td><td><input id="peo" type="number" value="1" min="1" style="width: 110px">&nbsp;&nbsp;명</td>
+                            </tr>
+
+                            <tr>
+                                <td>예약자명&nbsp;</td><td><input id="name" type="text" style="width: 110px"></td>
+                            </tr>
+
+                            <tr>
+                                <td>연락처&nbsp;</td><td><input id="phone" type="text" style="width: 110px">&nbsp;&nbsp;번</td>
+                            </tr>
+
+                            <tr>
+                                <td>총숙박요금&nbsp;</td><td><input id="totalp" type="text" style="width: 110px">&nbsp;&nbsp;원</td>
+                            </tr>
+
+                            <tr><td colspan="2">&nbsp;</td></tr>
+
+                            <tr>
+                                <td colspan="2" align="center"><button id="comp">완료</button>&nbsp;&nbsp;&nbsp;<button id="can">취소</button>&nbsp;&nbsp;&nbsp;<button id="emp">비우기</button></td>
+                            </tr>
+                        </table>
+
+                    </td> <!--2번째 td-->
+
+                    <td style="width: 33%;"> <!--3번째 td-->
+
+                        <table align="center" style="width: 250px;">
+                            <tr>
+                                <td>예약된 객실목록</td>
+                            </tr>
+
+                            <tr>
+                                <td><select id="sel4" size="30" style="width: 250px;"></select></td>
+                            </tr>
+                        </table>
+
+                    </td> <!--3번째 td-->
+
+                </tr>
+            </table>
+
+        </td>
+    </tr>
+</table> <!--가장 큰 table-->
+</body>
+
+<script src="https://code.jquery.com/jquery-latest.js"></script>
+<script>
+$(document)
+
+.on('change','#num',function(){
+    if($('#num').val()==1) {
+        $('#sel2').val('백두산');
+        $('#sel3').val('Suite Room');
+    }
+    if($('#num').val()==2) {
+        $('#sel2').val('한라산');
+        $('#sel3').val('Family Room');
+    }
+    if($('#num').val()==3) {
+        $('#sel2').val('광덕산');
+        $('#sel3').val('Deluxe Room');
+    }
+    if($('#num').val()==4) {
+        $('#sel2').val('설악산');
+        $('#sel3').val('Double Room');
+    }
+    if($('#num').val()==5) {
+        $('#sel2').val('태조산');
+        $('#sel3').val('Single Room');
+    }
+})
+
+
+.on('click','#emp',function(){
+    $('#chkin').val('');
+    $('#chkout').val('');
+    $('#sel').val('Suite Room');
+    $('#chkin1').val('');
+    $('#chkout1').val('');
+    $('#num').val(1);
+    $('#sel2').val('백두산');
+    $('#sel3').val('Suite Room');
+    $('#peo').val(1);
+    $('#name').val('');
+    $('#phone').val('');
+    $('#totalp').val('');
+})
+
+
+
+</script>
+</html>
